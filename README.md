@@ -1,5 +1,8 @@
 # ScanQRCodeMacOS
-![](https://github.com/YQqiang/ScanQRCodeMacOS/blob/main/icon.png)
+<center class="half">
+    <img src="https://github.com/YQqiang/ScanQRCodeMacOS/blob/main/icon.png"/>
+</center>
+
 运行在 macOS 上的屏幕二维码扫描 APP
 
 ## 安装
