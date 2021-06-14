@@ -39,7 +39,6 @@
 - (void)mouseDownAction {
     NSEvent *event = NSApp.currentEvent;
     if (event.type == NSEventTypeLeftMouseDown) {
-//        self.scanCodeItem.button.state = NSControlStateValueOff;
         [self scanQRCodeAction];
     } else if (event.type == NSEventTypeRightMouseDown) {
         [self extraAction];
@@ -54,6 +53,7 @@
     NSMenu *menu = [[NSMenu alloc] init];
     [menu addItemWithTitle:@"关于" action:@selector(aboutAction) keyEquivalent:@""];
     [menu addItemWithTitle:@"退出" action:@selector(quitAction) keyEquivalent:@""];
+//    [self.scanCodeItem setMenu:menu];
     [self.scanCodeItem popUpStatusItemMenu:menu];
 }
 
