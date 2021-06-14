@@ -6,7 +6,7 @@
 运行在 macOS 上的屏幕二维码扫描 APP
 
 ## 安装
-1. 下载后拖拽到【应用程序】目录中
+1. 下载[压缩包](https://github.com/YQqiang/ScanQRCodeMacOS/releases)，解压后拖拽到【应用程序】目录中
 2. 点击 APP 图标后，会在状态栏出现扫描二维码 icon
 
 ## 使用
