@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		F7830ABE26774454008C78DE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7830ABD26774454008C78DE /* AppDelegate.m */; };
-		F7830AC126774454008C78DE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7830AC026774454008C78DE /* ViewController.m */; };
 		F7830AC326774455008C78DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7830AC226774455008C78DE /* Assets.xcassets */; };
 		F7830AC626774455008C78DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7830AC426774455008C78DE /* Main.storyboard */; };
 		F7830AC926774455008C78DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F7830AC826774455008C78DE /* main.m */; };
@@ -38,8 +37,6 @@
 		F7830AB926774454008C78DE /* ScanQRCodeMacOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScanQRCodeMacOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7830ABC26774454008C78DE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F7830ABD26774454008C78DE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F7830ABF26774454008C78DE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		F7830AC026774454008C78DE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		F7830AC226774455008C78DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7830AC526774455008C78DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F7830AC726774455008C78DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -106,8 +103,6 @@
 				F7830AF226774572008C78DE /* Utils */,
 				F7830ABC26774454008C78DE /* AppDelegate.h */,
 				F7830ABD26774454008C78DE /* AppDelegate.m */,
-				F7830ABF26774454008C78DE /* ViewController.h */,
-				F7830AC026774454008C78DE /* ViewController.m */,
 				F7830AC226774455008C78DE /* Assets.xcassets */,
 				F7830AC426774455008C78DE /* Main.storyboard */,
 				F7830AC726774455008C78DE /* Info.plist */,
@@ -272,7 +267,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7830AC126774454008C78DE /* ViewController.m in Sources */,
 				F7830AC926774455008C78DE /* main.m in Sources */,
 				F7830ABE26774454008C78DE /* AppDelegate.m in Sources */,
 				F7830AF52677457D008C78DE /* Utils.m in Sources */,
@@ -448,6 +442,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.coder.yuqiang.ScanQRCodeMacOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -468,6 +463,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.coder.yuqiang.ScanQRCodeMacOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
