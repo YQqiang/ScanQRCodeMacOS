@@ -14,6 +14,7 @@
 		F7830AC926774455008C78DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F7830AC826774455008C78DE /* main.m */; };
 		F7830AD426774455008C78DE /* ScanQRCodeMacOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F7830AD326774455008C78DE /* ScanQRCodeMacOSTests.m */; };
 		F7830ADF26774455008C78DE /* ScanQRCodeMacOSUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F7830ADE26774455008C78DE /* ScanQRCodeMacOSUITests.m */; };
+		F7830AF52677457D008C78DE /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = F7830AF32677457D008C78DE /* Utils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,8 @@
 		F7830ADA26774455008C78DE /* ScanQRCodeMacOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScanQRCodeMacOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7830ADE26774455008C78DE /* ScanQRCodeMacOSUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScanQRCodeMacOSUITests.m; sourceTree = "<group>"; };
 		F7830AE026774455008C78DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7830AF32677457D008C78DE /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		F7830AF42677457D008C78DE /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +103,7 @@
 		F7830ABB26774454008C78DE /* ScanQRCodeMacOS */ = {
 			isa = PBXGroup;
 			children = (
+				F7830AF226774572008C78DE /* Utils */,
 				F7830ABC26774454008C78DE /* AppDelegate.h */,
 				F7830ABD26774454008C78DE /* AppDelegate.m */,
 				F7830ABF26774454008C78DE /* ViewController.h */,
@@ -129,6 +133,15 @@
 				F7830AE026774455008C78DE /* Info.plist */,
 			);
 			path = ScanQRCodeMacOSUITests;
+			sourceTree = "<group>";
+		};
+		F7830AF226774572008C78DE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F7830AF42677457D008C78DE /* Utils.h */,
+				F7830AF32677457D008C78DE /* Utils.m */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +275,7 @@
 				F7830AC126774454008C78DE /* ViewController.m in Sources */,
 				F7830AC926774455008C78DE /* main.m in Sources */,
 				F7830ABE26774454008C78DE /* AppDelegate.m in Sources */,
+				F7830AF52677457D008C78DE /* Utils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
