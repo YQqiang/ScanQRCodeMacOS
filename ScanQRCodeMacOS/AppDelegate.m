@@ -8,8 +8,9 @@
 #import "AppDelegate.h"
 #import <AppKit/AppKit.h>
 #import "Utils.h"
+#import <UserNotifications/UserNotifications.h>
 
-@interface AppDelegate ()<NSMenuDelegate>
+@interface AppDelegate ()<NSMenuDelegate, UNUserNotificationCenterDelegate>
 
 @property (nonatomic, strong) NSStatusItem *scanCodeItem;
 
@@ -34,6 +35,16 @@
 //    }];
 
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(foundQRCodeWithNoti:) name:@"NOTIFY_FOUND_QR_CODE" object:nil];
+    
+    // 请求通知权限
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    center.delegate = self;
+    [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert | UNAuthorizationOptionSound)
+                          completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        if (!granted) {
+            NSLog(@"用户未授权通知");
+        }
+    }];
 }
 
 - (void)mouseDownAction {
@@ -53,8 +64,7 @@
     NSMenu *menu = [[NSMenu alloc] init];
     [menu addItemWithTitle:@"关于" action:@selector(aboutAction) keyEquivalent:@""];
     [menu addItemWithTitle:@"退出" action:@selector(quitAction) keyEquivalent:@""];
-//    [self.scanCodeItem setMenu:menu];
-    [self.scanCodeItem popUpStatusItemMenu:menu];
+    [self.scanCodeItem setMenu:menu];
 }
 
 - (void)aboutAction {
@@ -68,12 +78,26 @@
 - (void)foundQRCodeWithNoti:(NSNotification *)noti {
     NSLog(@"noti = %@", noti);
     NSArray <NSString *>*message = noti.userInfo[@"message"];
+    
+    // 创建通知内容
+    UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc] init];
+    content.title = @"二维码扫描结果";
+    content.sound = [UNNotificationSound defaultSound];
+    
     if (message.count) {
+        // 将识别到的内容复制到剪贴板
         NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
         [pasteboard declareTypes:[NSArray arrayWithObjects:NSPasteboardTypeString, nil] owner:nil];
-        BOOL isSuccess = [pasteboard setString:[message componentsJoinedByString:@"\n"] forType:NSPasteboardTypeString];
-        NSLog(@"%d", isSuccess);
+        NSString *joinedString = [message componentsJoinedByString:@"\n"];
+        BOOL isSuccess = [pasteboard setString:joinedString forType:NSPasteboardTypeString];
+        content.body = joinedString;
+    } else {
+        content.body = @"未识别到二维码";
     }
+    
+    UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"QRCodeNotification" content:content trigger:nil];
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {}];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
@@ -82,7 +106,17 @@
 
 - (void)menuDidClose:(NSMenu *)menu {
     self.scanCodeItem.button.highlighted = NO;
-//    self.scanCodeItem.button.state = NSControlStateValueOff;
+    self.scanCodeItem.button.state = NSControlStateValueOff;
+}
+
+#pragma mark - UNUserNotificationCenterDelegate
+
+// 在应用处于前台时也显示通知
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center
+       willPresentNotification:(UNNotification *)notification
+         withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler {
+    // 设置通知在前台时的展示方式
+    completionHandler(UNNotificationPresentationOptionAlert | UNNotificationPresentationOptionSound);
 }
 
 @end
